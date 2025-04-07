@@ -10,11 +10,12 @@ import lombok.RequiredArgsConstructor;
 public class RentAlertSender implements Sender {
 	private final EmailService email;
 
+	@Override
 	public void send() {
 		email
 				.to("antoine.haz@gmail.com")
 				.subject("Rent")
-				.body("Rent")
+				.body("Rent : 730€ to Mme.PLANCKAERT")
 				.send();
 	}
 }
