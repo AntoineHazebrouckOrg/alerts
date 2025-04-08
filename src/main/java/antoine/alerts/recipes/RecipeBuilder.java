@@ -3,7 +3,7 @@ package antoine.alerts.recipes;
 import java.util.ArrayList;
 import java.util.List;
 
-class RecipeBuilder {
+public final class RecipeBuilder {
 	private final String name;
 	private final List<String> ingredients;
 
