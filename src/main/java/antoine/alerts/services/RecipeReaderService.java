@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 
-import antoine.alerts.recipes.Recipe;
+import antoine.alerts.data.recipes.Recipe;
 import lombok.RequiredArgsConstructor;
 import lombok.val;
 

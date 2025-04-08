@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-import antoine.alerts.recipes.Recipe;
+import antoine.alerts.data.recipes.Recipe;
 import antoine.alerts.services.EmailService;
 import antoine.alerts.services.RecipeReaderService;
 import lombok.RequiredArgsConstructor;

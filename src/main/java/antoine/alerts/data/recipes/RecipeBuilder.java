@@ -1,4 +1,4 @@
-package antoine.alerts.recipes;
+package antoine.alerts.data.recipes;
 
 import java.util.ArrayList;
 import java.util.List;
