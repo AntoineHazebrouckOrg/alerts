@@ -16,5 +16,9 @@ jobs:
           
                 git-release-bot-name: "release-bot"
                 git-release-bot-email: "release-bot@example.com"
+
+                maven-repo-server-id: github
+                maven-repo-server-username: ${{ github.actor }}
+                maven-repo-server-password: ${{ github.token }}
           
                 access-token: ${{ secrets.GITHUB_TOKEN }}
