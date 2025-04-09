@@ -7,10 +7,14 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
-            - uses: s4u/setup-maven-action@v1.18.0
+            # - uses: s4u/setup-maven-action@v1.18.0
+            #   with:
+            #     java-version: 21
+            - uses: qcastel/github-actions-maven-release@master
               with:
-                java-version: 21
-            - run: |
-                git config user.email "antoine.hazebrouck5@gmail.com"
-                git config user.name "Antoine HAZEBROUCK"
-                mvn --batch-mode release:prepare
+                release-branch-name: "master"
+          
+                git-release-bot-name: "release-bot"
+                git-release-bot-email: "release-bot@example.com"
+          
+                access-token: ${{ secrets.GITHUB_TOKEN }}
