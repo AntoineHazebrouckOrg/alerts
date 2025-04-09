@@ -1,7 +1,7 @@
 name: maven-release
 on: 
     workflow_dispatch:
-
+ 
 jobs:
     maven-release:
         runs-on: ubuntu-latest
