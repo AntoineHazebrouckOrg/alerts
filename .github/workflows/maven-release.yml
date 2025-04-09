@@ -10,4 +10,7 @@ jobs:
             - uses: s4u/setup-maven-action@v1.18.0
               with:
                 java-version: 21
-            - run: mvn --batch-mode release:prepare
+            - run: |
+                git config user.email "antoine.hazebrouck5@gmail.com"
+                git config user.name "Antoine HAZEBROUCK"
+                mvn --batch-mode release:prepare
