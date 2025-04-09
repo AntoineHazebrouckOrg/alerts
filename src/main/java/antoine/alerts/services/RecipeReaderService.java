@@ -17,7 +17,7 @@ public class RecipeReaderService {
 	private final ResourceLoader resources;
 
 	public List<Recipe> read() throws IOException {
-		var content = new String(resources.getResource("classpath:recipes.md").getInputStream().readAllBytes());
+		val content = new String(resources.getResource("classpath:recipes.md").getInputStream().readAllBytes());
 		return Stream.of(content.split("# "))
 				.filter(line -> !line.isBlank())
 				.map(section -> {

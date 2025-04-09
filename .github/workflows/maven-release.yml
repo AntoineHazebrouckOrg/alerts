@@ -7,4 +7,7 @@ jobs:
         runs-on: self-hosted
         steps:
             - uses: actions/checkout@v2
-            - run: ./mvnw --batch-mode release:prepare
+            - uses: s4u/setup-maven-action@v1.18.0
+              with:
+                java-version: 21
+            - run: mvn --batch-mode release:prepare
