@@ -12,7 +12,7 @@ jobs:
             #     java-version: 21
             - uses: qcastel/github-actions-maven-release@master
               with:
-                release-branch-name: "master"
+                release-branch-name: "main"
           
                 git-release-bot-name: "release-bot"
                 git-release-bot-email: "release-bot@example.com"
