@@ -2,12 +2,12 @@ package antoine.alerts.data.recipes;
 
 import java.util.List;
 
-import lombok.Data;
+import lombok.Value;
 
-@Data
-public final class Recipe {
-	private final String name;
-	private final List<String> ingredients;
+@Value
+public class Recipe {
+	String name;
+	List<String> ingredients;
 
 	public static RecipeBuilder named(String name) {
 		return new RecipeBuilder(name);

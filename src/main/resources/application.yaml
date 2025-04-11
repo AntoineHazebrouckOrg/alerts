@@ -1,3 +1,5 @@
+application:
+    receiver: antoine.haz@gmail.com
 spring:
     application.name: alerts
     mail:
@@ -6,7 +8,7 @@ spring:
         username: antoine.haz@gmail.com
         password: zsjx msme nrzr msep
         properties:
-            mail:
+            mail: 
                 smtp:
                     auth: true
                     starttls:

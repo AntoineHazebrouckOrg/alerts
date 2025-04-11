@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import antoine.alerts.ApplicationConfiguration;
 import antoine.alerts.data.recipes.Recipe;
 import antoine.alerts.services.EmailService;
 import antoine.alerts.services.RecipeReaderService;
@@ -17,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 public class RandomRecipeSender implements Sender {
 	private final EmailService email;
 	private final RecipeReaderService recipes;
+	private final ApplicationConfiguration application;
 
 	@Scheduled(cron = "0 0 10,18 * * *")
 	@Override
@@ -25,7 +27,7 @@ public class RandomRecipeSender implements Sender {
 		Collections.shuffle(copy);
 		Recipe random = copy.get(0);
 
-		email.to("antoine.haz@gmail.com")
+		email.to(application.getReceiver())
 				.subject("Recette : " + random.getName())
 				.body("Recette : " + random.getName() + "\n - "
 						+ random.getIngredients().stream()
