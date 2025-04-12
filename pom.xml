@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>antoine</groupId>
 	<artifactId>alerts</artifactId>
-	<version>0.0.6-SNAPSHOT</version>
+	<version>0.0.6</version>
 	<name>alerts</name>
 	<description>Demo project for Spring Boot</description>
 	<url />
@@ -22,7 +22,7 @@
 	<scm>
 		<connection>scm:git:https://github.com/AntoineHazebrouckOrg/alerts</connection>
 		<developerConnection>scm:git:https://github.com/AntoineHazebrouckOrg/alerts</developerConnection>
-		<tag>HEAD</tag>
+		<tag>alerts-0.0.6</tag>
 		<url>https://github.com/AntoineHazebrouckOrg/alerts</url>
 	</scm>
 	<distributionManagement>
