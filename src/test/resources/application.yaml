@@ -1,0 +1,15 @@
+application:
+    receiver: antoine.haz@gmail.com
+spring:
+    application.name: alerts
+    mail:
+        host: smtp.gmail.com
+        port: 587
+        username: antoine.haz@gmail.com
+        password: ???
+        properties:
+            mail: 
+                smtp:
+                    auth: true
+                    starttls:
+                        enable: true
