@@ -12,7 +12,9 @@ import antoine.alerts.data.recipes.Recipe;
 import antoine.alerts.services.EmailService;
 import antoine.alerts.services.RecipeReaderService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RequiredArgsConstructor
 @Service
 public class RandomRecipeSender implements Sender {
@@ -23,6 +25,8 @@ public class RandomRecipeSender implements Sender {
 	@Scheduled(cron = "0 0 10,18 * * *")
 	@Override
 	public void send() throws Exception {
+		log.info("Preparing recipe alert email to " + application.getReceiver());
+
 		var copy = new ArrayList<>(recipes.read());
 		Collections.shuffle(copy);
 		Recipe random = copy.get(0);
@@ -33,6 +37,8 @@ public class RandomRecipeSender implements Sender {
 						+ random.getIngredients().stream()
 								.collect(Collectors.joining("\n - ")))
 				.send();
+
+		log.info("Email sent");
 	}
 
 }
