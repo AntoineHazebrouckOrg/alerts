@@ -1,9 +1,11 @@
 package antoine.alerts.services;
 
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
+import lombok.val;
 
 @RequiredArgsConstructor
 public class EmailBuilder {
@@ -28,11 +30,12 @@ public class EmailBuilder {
 		return this;
 	}
 
-	public void send() {
-		SimpleMailMessage message = new SimpleMailMessage();
-		message.setTo(to);
+	public void send() throws MessagingException {
+		val message = mail.createMimeMessage();
+		// SimpleMailMessage message = new SimpleMailMessage();
+		message.setRecipients(MimeMessage.RecipientType.TO, to);
 		message.setSubject(subject);
-		message.setText(body);
+		message.setContent(body, "text/html; charset=utf-8");
 		mail.send(message);
 	}
 }

@@ -1,23 +1,23 @@
-package antoine.alerts.data.recipes;
+// package antoine.alerts.data.recipes;
 
-import java.util.ArrayList;
-import java.util.List;
+// import java.util.ArrayList;
+// import java.util.List;
 
-public final class RecipeBuilder {
-	private final String name;
-	private final List<String> ingredients;
+// public final class RecipeBuilder {
+// 	private final String name;
+// 	private final List<String> ingredients;
 
-	public RecipeBuilder(String name) {
-		this.name = name;
-		this.ingredients = new ArrayList<>();
-	}
+// 	public RecipeBuilder(String name) {
+// 		this.name = name;
+// 		this.ingredients = new ArrayList<>();
+// 	}
 
-	public RecipeBuilder needs(String ingredient) {
-		ingredients.add(ingredient);
-		return this;
-	}
+// 	public RecipeBuilder needs(String ingredient) {
+// 		ingredients.add(ingredient);
+// 		return this;
+// 	}
 
-	public Recipe build() {
-		return new Recipe(name, ingredients);
-	}
-}
+// 	public Recipe build() {
+// 		return new Recipe(name, ingredients);
+// 	}
+// }

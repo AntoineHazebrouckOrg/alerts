@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import antoine.alerts.ApplicationConfiguration;
 import antoine.alerts.services.EmailService;
+import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -17,7 +18,7 @@ public class RentAlertSender implements Sender {
 
 	@Scheduled(cron = "0 0 8,18 4,5 * *")
 	@Override
-	public void send() {
+	public void send() throws MessagingException {
 		log.info("Preparing rent alert email to " + application.getReceiver());
 
 		email
