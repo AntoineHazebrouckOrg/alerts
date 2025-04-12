@@ -22,7 +22,7 @@ public class RandomRestaurantSender implements Sender {
 	private final RestaurantReaderService restaurants;
 	private final ApplicationConfiguration application;
 
-	@Scheduled(cron = "0 * * * * *")
+	@Scheduled(cron = "0 0 18 1,15 * *")
 	@Override
 	public void send() throws Exception {
 		log.info("Preparing recipe alert email to " + application.getReceiver());
