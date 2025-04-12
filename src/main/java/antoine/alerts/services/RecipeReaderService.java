@@ -1,10 +1,11 @@
 package antoine.alerts.services;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Stream;
 
-import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 
 import antoine.alerts.data.recipes.Recipe;
@@ -14,10 +15,8 @@ import lombok.val;
 @RequiredArgsConstructor
 @Service
 public class RecipeReaderService {
-	private final ResourceLoader resources;
-
 	public List<Recipe> read() throws IOException {
-		val content = new String(resources.getResource("classpath:recipes.md").getInputStream().readAllBytes());
+		val content = Files.readString(Paths.get("runtime-resources/recipes.md"));
 		return Stream.of(content.split("# "))
 				.filter(line -> !line.isBlank())
 				.map(section -> {
