@@ -11,7 +11,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.Cleanup;
 import lombok.val;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 abstract class JsonRepository<T> {
 	private static final ObjectMapper json = new ObjectMapper();
 
@@ -33,6 +35,7 @@ abstract class JsonRepository<T> {
 
 		writer.write(json.writeValueAsBytes(allData));
 
+		log.info("New json element added to {} : {}", file().getPath(), json.writeValueAsString(element));
 		return element;
 	}
 

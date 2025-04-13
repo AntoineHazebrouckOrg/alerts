@@ -13,9 +13,19 @@
 		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="container">
 
-	<h2>Recipes</h2>
+	<h2 class="text-center my-4">Recipes</h2>
+
+	<div class="col-6 mx-auto">
+		<form action="/recipes" method="post" th:object="${recipe}">
+			<p>Name: <input type="text" th:field="*{name}" /></p>
+			<p>Ingredients (comma separated): <input type="text" th:field="*{ingredients}" /></p>
+
+			<p><input type="submit" value="Submit" class="btn btn-primary mb-3" /></p>
+		</form>
+	</div>
+
 	<table class="table">
 		<thead>
 			<tr>
@@ -35,11 +45,6 @@
 		</tbody>
 	</table>
 
-	<form action="/recipes" method="post" th:object="${recipe}">
-		<p>Name: <input type="text" th:field="*{name}" /></p>
-		<p>Ingredients: <input type="text" th:field="*{ingredients}" /></p>
-		<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-	</form>
 
 </body>
 
