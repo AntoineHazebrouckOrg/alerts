@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 
 import antoine.alerts.ApplicationConfiguration;
 import antoine.alerts.data.recipes.Recipe;
+import antoine.alerts.repositories.RecipeRepository;
 import antoine.alerts.services.EmailService;
-import antoine.alerts.services.readers.RecipeReaderService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -19,7 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class RandomRecipeSender implements Sender {
 	private final EmailService email;
-	private final RecipeReaderService recipes;
+	private final RecipeRepository recipes;
 	private final ApplicationConfiguration application;
 
 	@Scheduled(cron = "0 0 10,18 * * *")
@@ -27,7 +27,7 @@ public class RandomRecipeSender implements Sender {
 	public void send() throws Exception {
 		log.info("Preparing recipe alert email to " + application.getReceiver());
 
-		var copy = new ArrayList<>(recipes.read());
+		var copy = new ArrayList<>(recipes.findAll());
 		Collections.shuffle(copy);
 		Recipe random = copy.get(0);
 

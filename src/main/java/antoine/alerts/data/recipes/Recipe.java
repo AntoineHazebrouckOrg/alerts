@@ -8,8 +8,4 @@ import lombok.Data;
 public final class Recipe {
 	private String name;
 	private List<String> ingredients;
-
-	// public static RecipeBuilder named(String name) {
-	// 	return new RecipeBuilder(name);
-	// }
 }
